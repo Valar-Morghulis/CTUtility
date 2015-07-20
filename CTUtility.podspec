@@ -49,7 +49,7 @@ s.source_files = 'CTUtility/*.{h,m}'
   #s.frameworks = "Foundation", "UIKit"
   s.dependency     'UIDevice-with-UniqueIdentifier-for-iOS-5'
   s.dependency     'CTAlertView'
-  s.dependency     'A0SimpleKeychain'
+  s.dependency     'SimpleKeychain', '~> 0.4.0'
 
 
   s.requires_arc = false
