@@ -86,7 +86,6 @@ extern NSString * APP_CACHE_FOLDER;//
 +(NSString *)getWeekFromData:(NSDate *)date;
 
 +(int)getMonthWeekday:(CFGregorianDate)date;
-+(NSString *)getMonthWeekdayString:(int)weekday withIndex:(int)index;
 
 
 //其他

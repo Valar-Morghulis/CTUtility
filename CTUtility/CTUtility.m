@@ -389,38 +389,6 @@ static char base64EncodingTable[64] = {
 	month_date.second=1;
 	return (int)CFAbsoluteTimeGetDayOfWeek(CFGregorianDateGetAbsoluteTime(month_date,tz),tz);
 }
-+(NSString *)getMonthWeekdayString:(int)weekday withIndex:(int)index{
-	NSString *week=@"";
-	if (index==0) {
-		week=@"星期一";
-		switch (weekday) {
-			case 2:
-				week=@"星期二";
-				break;
-			case 3:
-				week=@"星期三";
-				break;
-			case 4:
-				week=@"星期四";
-				break;
-			case 5:
-				week=@"星期五";
-				break;
-			case 6:
-				week=@"星期六";
-				break;
-			case 7:
-				week=@"星期日";
-				break;
-			default:
-				week=@"星期一";
-				break;
-		}
-	}else {
-		
-	}
-	return week;
-}
 + (NSString*)sha1:(NSString*)input
 {
     const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
