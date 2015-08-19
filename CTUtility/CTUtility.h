@@ -22,8 +22,10 @@ extern NSString * APP_CACHE_FOLDER;//
 
 @interface CTUtility : NSObject
 
+@end
 
-//获取参数
+
+@interface CTUtility(Parameters)//获取参数
 + (NSString *)getGUID;//并不是唯一的，每次获取都会改变
 +(NSString *)getUDID;//并不是唯一的，每次获取都会改变
 +(NSString *)getUDIDWidthKeyChain;//唯一
@@ -31,7 +33,9 @@ extern NSString * APP_CACHE_FOLDER;//
 + (NSString *)generateTimestamp;
 + (NSString *)generateNonce;
 
-//加密编码
+@end
+
+@interface CTUtility(Encode_Decode)//加密编码
 + (NSString*)MD5Encode:(NSString*)input;
 + (NSString*)sha1:(NSString*)input;
 + (NSString*)URLEncode:(NSString*)str;
@@ -39,8 +43,11 @@ extern NSString * APP_CACHE_FOLDER;//
 
 + (NSString *)base64StringWithHMACSHA1Digest:(NSString *)strSource key:(NSString *)secretKey;
 + (NSString *)base64StringFromData:(NSData *)data length:(int)length;
+@end
 
-//文件缓存
+
+@interface CTUtility(Cache)//文件缓存
+
 +(BOOL)isFileExist:(NSString *)fileName;
 +(BOOL)cacheFileWidthData:(NSString *)fileName dicData:(NSDictionary *)dic;
 
@@ -51,9 +58,13 @@ extern NSString * APP_CACHE_FOLDER;//
 
 +(NSString *)pathForFileName:(NSString *)fileName;
 
+@end
 
-//数据校验
 
+
+@interface CTUtility(Check)//数据校验
+
++(BOOL)isFloat:(NSString *)string;
 //格式化字符串  将字符串两边空格去掉
 +(NSString *)trim:(NSString *)string;
 //验证邮箱地址是否合法
@@ -61,12 +72,14 @@ extern NSString * APP_CACHE_FOLDER;//
 //比较是否为同一天
 + (BOOL)isSameDay:(NSDate*)date1 date2:(NSDate*)date2;
 
+@end
+
+
+
+@interface CTUtility(Format)//格式转换
+
 //按照key排序
 + (NSMutableArray *)bubbleSortDictionaryByKeys:(NSDictionary *)dict;
-
-
-//格式转换
-+(BOOL)isFloat:(NSString *)string;
 //格式化日期
 +(NSString *)formatDateByString:(NSString *)inputDate;
 
@@ -88,16 +101,26 @@ extern NSString * APP_CACHE_FOLDER;//
 +(int)getMonthWeekday:(CFGregorianDate)date;
 
 
-//其他
+@end
+
+@interface CTUtility(RandomColor)
++(UIColor *) randomColor;
+@end
+
+
+@interface CTUtility(Others)//其他
 
 +(void)alertMessage:(NSString *)title message:(NSString *)message;
-+(void)alertMessage:(NSString *)title 
-            message:(NSString *)message 
-           delegate:(id)delegate 
++(void)alertMessage:(NSString *)title
+            message:(NSString *)message
+           delegate:(id)delegate
   cancelButtonTitle:(NSString *)cancelButton
   otherButtonTitles:(NSString *)otherButton
                 tag:(NSInteger)tag;
 //拨打电话
 +(void)callNumber:(NSString *)phoneNumber;
-
 @end
+
+
+
+
